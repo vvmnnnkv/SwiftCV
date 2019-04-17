@@ -22,7 +22,7 @@ This notebook was executed using [updated swift-jupyter docker image](https://gi
 ## Usage
 Include as SwiftPM package:
 
-`.package(url: "https://github.com/vvmnnnkv/SwiftCV.git", branch: "master")`
+`.package(url: "https://github.com/vvmnnnkv/SwiftCV.git", .branch("master"))`
 
 NOTE: OpenCV4 must installed in order for package to compile.
 
