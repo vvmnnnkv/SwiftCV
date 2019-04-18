@@ -299,5 +299,8 @@ public enum ColorConversionCode {
     }
 }
 
-
-
+public enum FlipMode: Int32 {
+    case VERTICAL = 0
+    case HORIZONTAL = 1
+    case BOTH = -1
+}

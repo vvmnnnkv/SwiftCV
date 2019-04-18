@@ -12,6 +12,8 @@ OpenCV Functions exposed:
  * imdecode
  * imread
  * cvtColor
+ * flip
+ * transpose
  
 OpenCV's `Mat` can be converted to S4TF's `Tensor` and `ShapedArray` types. 
  

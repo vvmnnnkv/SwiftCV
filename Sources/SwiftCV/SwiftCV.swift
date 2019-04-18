@@ -191,6 +191,18 @@ public func cvtColor(_ src: Mat, _ dst: Mat? = nil, _ code: ColorConversionCode)
     return out
 }
 
+public func flip(_ src: Mat, _ dst: Mat? = nil, _ mode: FlipMode) -> Mat {
+    let out = Mat(dst)
+    COpenCV.Mat_Flip(src.p, out.p, mode.rawValue)
+    return out
+}
+
+public func transpose(_ src: Mat, _ dst: Mat? = nil) -> Mat {
+    let out = Mat(dst)
+    COpenCV.Mat_Transpose(src.p, out.p)
+    return out
+}
+
 public func cvVersion() -> String {
     return String(cString: COpenCV.openCVVersion()!)
 }
