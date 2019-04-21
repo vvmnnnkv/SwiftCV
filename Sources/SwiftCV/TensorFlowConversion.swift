@@ -40,7 +40,7 @@ extension Tensor : ConvertibleFromCvMat {
     ///
     /// TODO sanity checks
     public init?(cvMat: SwiftCV.Mat) {
-        let matShape: [Int32] = [cvMat.rows, cvMat.cols, cvMat.channels].map {Int32($0)}
+        let matShape: [Int] = [cvMat.rows, cvMat.cols, cvMat.channels]
         let tensorShape = TensorShape(matShape)
 
         // Make sure that the array is contiguous in memory. This does a copy if
