@@ -5,7 +5,7 @@ pushd ~/opencv
 
 curl -sLO https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip
 unzip -qqo ${OPENCV_VERSION}.zip
-rm ${OPENCV_VERSION}.zip
+rm -f ${OPENCV_VERSION}.zip
 mv opencv-${OPENCV_VERSION} OpenCV
 cd OpenCV
 mkdir build
