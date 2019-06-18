@@ -1,3 +1,4 @@
+/*
 import TensorFlow
 
 public protocol ConvertibleFromCvMat {
@@ -53,3 +54,4 @@ extension Tensor : ConvertibleFromCvMat {
         self.init(shape: tensorShape, scalars: buffPtr)
     }
 }
+*/
