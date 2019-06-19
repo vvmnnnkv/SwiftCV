@@ -1,9 +1,11 @@
 set -ex
 OPENCV_VERSION=${1:-4.1.0}
 COMPILE_DIR=/tmp/opencv
+INSTALL_DIR=/opt/opencv-${OPENCV_VERSION}
 
 rm -rf $COMPILE_DIR
 mkdir -p $COMPILE_DIR
+mkdir -p $INSTALL_DIR
 pushd $COMPILE_DIR
 
 curl -sLO https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip
@@ -13,6 +15,7 @@ cd opencv
 mkdir build
 cd build
 cmake \
+  -D CMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
   -D BUILD_LIST=core,imgproc,imgcodecs \
   -D CMAKE_BUILD_TYPE=Release \
   -D OPENCV_GENERATE_PKGCONFIG=YES \
@@ -25,6 +28,7 @@ cmake \
   -D WITH_TBB=ON \
   -D WITH_GDAL=ON \
   -D WITH_XINE=ON \
+  -D WITH_WEBP=OFF
   -D BUILD_PROTOBUF=OFF \
   -D BUILD_DOCS=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_TESTS=OFF \
   -D ENABLE_PRECOMPILED_HEADERS=OFF \
