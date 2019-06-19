@@ -1,13 +1,15 @@
-OPENCV_VERSION='4.1.0'
+set -ex
+OPENCV_VERSION=${1:-4.1.0}
+COMPILE_DIR=/tmp/opencv
 
-mkdir -p ~/opencv
-pushd ~/opencv
+rm -rf $COMPILE_DIR
+mkdir -p $COMPILE_DIR
+pushd $COMPILE_DIR
 
 curl -sLO https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip
 unzip -qqo ${OPENCV_VERSION}.zip
-rm -f ${OPENCV_VERSION}.zip
-mv opencv-${OPENCV_VERSION} OpenCV
-cd OpenCV
+mv opencv-${OPENCV_VERSION} opencv
+cd opencv
 mkdir build
 cd build
 cmake \
@@ -32,4 +34,5 @@ cmake \
 make -j $(nproc --all) | tee -a install_cv4.log
 sudo make install | tee -a install_cv4.log
 sudo ldconfig | tee -a install.log
+rm -f $COMPILE_DIR
 popd
