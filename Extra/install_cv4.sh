@@ -37,7 +37,8 @@ cmake \
   -D ENABLE_FAST_MATH=ON \
   .. | tee install_cv4.log
 make -j 8 | tee -a install_cv4.log
-sudo make install | tee -a install_cv4.log
-sudo ldconfig | tee -a install_cv4.log
+sudo make install --silent | tee -a install_cv4.log
+sudo ldconfig $INSTALL_DIR/lib | tee -a install_cv4.log
+sudo ln -s $INSTALL_DIR/lib/pkgconfig/opencv4.pc /usr/lib/pkgconfig/opencv4.pc
 rm -f $COMPILE_DIR
 popd
