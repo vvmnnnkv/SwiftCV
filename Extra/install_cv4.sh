@@ -29,7 +29,7 @@ cmake \
   -D CPU_BASELINE=NATIVE \
   -D ENABLE_FAST_MATH=ON \
   .. | tee install_cv4.log
-make -j $(nproc --all) | -a tee install_cv4.log
-sudo make install | -a tee install_cv4.log
-sudo ldconfig
+make -j $(nproc --all) | tee -a install_cv4.log
+sudo make install | tee -a install_cv4.log
+sudo ldconfig | tee -a install.log
 popd
