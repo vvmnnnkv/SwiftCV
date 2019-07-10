@@ -178,8 +178,8 @@ public func remap(_ src: Mat, _ dst: Mat? = nil,
 }
 
 public func imdecode(_ buf: Data, _ flags: IMReadMode = IMReadMode.IMREAD_COLOR) -> Mat {
-    return buf.withUnsafeBytes { (ptr: UnsafePointer<Int8>) -> Mat in
-        let mutablePtr = UnsafeMutablePointer(mutating: ptr)
+    return buf.withUnsafeBytes { (ptr: UnsafeRawBufferPointer) -> Mat in
+        let mutablePtr = UnsafeMutablePointer<Int8>(mutating: ptr.bindMemory(to: Int8.self).baseAddress!)
         let byteArr = COpenCV.ByteArray(data: mutablePtr, length: Int32(buf.count))
         return Mat(COpenCV.Image_IMDecode(byteArr, flags.rawValue))
     }
