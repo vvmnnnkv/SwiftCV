@@ -82,9 +82,9 @@ public struct Mat {
         return Int(COpenCV.Mat_ElemSize(p))
     }
 
-    public var dataPtr: UnsafeMutablePointer<Int8> {
+    public var dataPtr: UnsafeRawPointer {
         let byteArr = COpenCV.Mat_DataPtr(p)
-        return byteArr.data
+        return UnsafeRawPointer(byteArr.data)!
     }
 
     public var isContinuous: Bool {
