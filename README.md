@@ -17,9 +17,9 @@ OpenCV Functions exposed:
  
 OpenCV's `Mat` can be converted to S4TF's `Tensor` and `ShapedArray` types. 
  
-See `Extra/Test.ipynb` and `Tests` as an example of usage.
+See [`Extra/Test.ipynb`](Extra/Test.ipynb) and [`Tests`](Tests/SwiftCVTests/SwiftCVTests.swift) as an example of usage.
 
-This notebook was executed using [updated swift-jupyter docker image](https://github.com/vvmnnnkv/swift-jupyter/tree/opencv4) with OpenCV4 installed.   
+Try demo [notebook in Colab](https://colab.research.google.com/github/vvmnnnkv/SwiftCV/blob/master/Extra/Tests.ipynb).
 
 ## Usage
 Include as SwiftPM package:
