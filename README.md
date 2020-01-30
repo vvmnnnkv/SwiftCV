@@ -14,6 +14,9 @@ OpenCV Functions exposed:
  * cvtColor
  * flip
  * transpose
+ * VideoCapture
+ * ImShow
+ * WaitKey
  
 OpenCV's `Mat` can be converted to S4TF's `Tensor` and `ShapedArray` types. 
  
@@ -96,6 +99,22 @@ flip(cvImg, nil, FlipMode.HORIZONTAL)
 
 ```swift
 transpose(cvImg, nil)
+```
+
+#### Viewing webcam
+
+```swift
+let cap = VideoCapture(0)
+// Optional, reduces latency a bit
+cap.set(VideoCaptureProperties.CAP_PROP_BUFFERSIZE, 1)
+
+let frame = Mat()
+
+while true {
+    cap.read(into: frame)
+    ImShow(image: frame)
+    WaitKey(delay: 1)
+}
 ```
 
 #### Lightning / Contrast

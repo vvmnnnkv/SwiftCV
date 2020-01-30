@@ -122,6 +122,7 @@ public func imread(_ filename: String, _ flags: IMReadMode = IMReadMode.IMREAD_C
     return Mat(ret)
 }
 
+@discardableResult
 public func imwrite(_ filename: String, _ img: Mat) -> Bool {
     return Image_IMWrite(filename, img.p)
 }
