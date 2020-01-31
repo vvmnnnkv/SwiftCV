@@ -1,3 +1,4 @@
+import COpenCV
 import TensorFlow
 
 public protocol ConvertibleFromCvMat {
@@ -51,5 +52,16 @@ extension Tensor : ConvertibleFromCvMat {
         let buffPtr = UnsafeBufferPointer(start: ptr,
                 count: Int(tensorShape.contiguousSize))
         self.init(shape: tensorShape, scalars: buffPtr)
+    }
+}
+
+public extension Mat {
+    public init(fromTensor tensor: Tensor<Int8>) {
+        self = tensorData.withUnsafeBytes { (ptr: UnsafeRawBufferPointer) -> SwiftCV.Mat in
+            let mutablePtr = UnsafeMutablePointer<Int8>(mutating: ptr.bindMemory(to: Int8.self).baseAddress!)
+            let byteArr = COpenCV.ByteArray(data: mutablePtr, length: Int32(tensorData.count))
+            let cvMat = COpenCV.Mat_NewFromBytes(Int32(tensor.shape[0]), Int32(tensor.shape[1]), MatType.CV_8UC3, byteArr)
+            return SwiftCV.Mat(cvMat)
+        }
     }
 }
