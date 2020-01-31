@@ -56,7 +56,7 @@ extension Tensor : ConvertibleFromCvMat {
 }
 
 public extension Mat {
-    init(fromTensor tensor: Tensor<Int8>) {
+    init(fromTensor tensor: Tensor<UInt8>) {
         let tensorData = tensor.scalars
         self = tensorData.withUnsafeBytes { (ptr: UnsafeRawBufferPointer) -> SwiftCV.Mat in
             let mutablePtr = UnsafeMutablePointer<Int8>(mutating: ptr.bindMemory(to: Int8.self).baseAddress!)
