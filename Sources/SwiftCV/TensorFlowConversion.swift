@@ -61,7 +61,7 @@ public extension Mat {
         self = tensorData.withUnsafeBytes { (ptr: UnsafeRawBufferPointer) -> SwiftCV.Mat in
             let mutablePtr = UnsafeMutablePointer<Int8>(mutating: ptr.bindMemory(to: Int8.self).baseAddress!)
             let byteArr = COpenCV.ByteArray(data: mutablePtr, length: Int32(tensorData.count))
-            let cvMat = COpenCV.Mat_NewFromBytes(Int32(tensor.shape[0]), Int32(tensor.shape[1]), MatType.CV_8UC3, byteArr)
+            let cvMat = COpenCV.Mat_NewFromBytes(Int32(tensor.shape[0]), Int32(tensor.shape[1]), MatType.CV_8UC3.rawValue, byteArr)
             return SwiftCV.Mat(cvMat)
         }
     }
