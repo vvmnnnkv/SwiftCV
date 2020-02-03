@@ -43,6 +43,8 @@ In a Jupyter Notebook:
 
 > **NOTE: OpenCV4 must installed in order for package to compile.**
 
+Run the `install/install_cv4.sh` script ([written by Jeremy Howard](https://github.com/fastai/course-v3/blob/master/nbs/swift/SwiftCV/install/install_cv4.sh)) to install opencv4.
+
 ### API
 #### Loading an image
 ```swift
