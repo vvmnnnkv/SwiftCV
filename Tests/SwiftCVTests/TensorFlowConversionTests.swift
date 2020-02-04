@@ -20,10 +20,10 @@ final class TensorFlowConversionTests: XCTestCase {
     }
 
     func testMatConversion() {
-        let tensor = Tensor<Int8>(Tensor<Float>(randomNormal: [4, 4, 3]) * 255)
+        let tensor = Tensor<UInt8>(Tensor<Float>(randomNormal: [4, 4, 3]) * 255)
         let mat = Mat(fromTensor: tensor)
         let backToTensor = Tensor<UInt8>(cvMat: mat)
-        XCTAssertEqual(mat, backToTensor)
+        XCTAssertEqual(tensor, backToTensor)
     }
 
     static var allTests = [
