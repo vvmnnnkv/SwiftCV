@@ -41,6 +41,7 @@ public enum MatType: Int32 {
     case CV_32S = 4
     case CV_32F = 5
     case CV_64F = 6
+    case CV_8UC3 = 16
 }
 
 public struct Mat {
