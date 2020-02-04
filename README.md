@@ -18,7 +18,7 @@ OpenCV Functions exposed:
  * ImShow (Not supported on Colab)
  * WaitKey
  
-OpenCV's `Mat` can be converted to S4TF's `Tensor` and `ShapedArray` types. 
+OpenCV's `Mat` can be converted to S4TF's `Tensor` and `ShapedArray` types (and back).
  
 See [`Extra/Tests.ipynb`](Extra/Tests.ipynb) and [`Tests`](Tests/SwiftCVTests/SwiftCVTests.swift) as an example of usage.
 
