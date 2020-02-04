@@ -14,8 +14,8 @@ OpenCV Functions exposed:
  * cvtColor
  * flip
  * transpose
- * VideoCapture
- * ImShow
+ * VideoCapture (Not supported on Colab)
+ * ImShow (Not supported on Colab)
  * WaitKey
  
 OpenCV's `Mat` can be converted to S4TF's `Tensor` and `ShapedArray` types. 
